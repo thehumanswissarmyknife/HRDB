@@ -12,9 +12,10 @@ var {SkillComp} = require('./models/skillComp');
 var {Action} = require('./models/action');
 
 const port = process.env.PORT || 3000;
+const mongoCon = process.env.MONGODB_URI || 'mongodb://localhost:30001/HR';
 
 // connection to the db
-mongoose.connect('mongodb://localhost:30001/HR', { useMongoClient: true });
+mongoose.connect(mongoCon, { useMongoClient: true });
 mongoose.Promise = global.Promise;
 
 // json parser for the Posting and getting
