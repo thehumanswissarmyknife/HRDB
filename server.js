@@ -11,6 +11,8 @@ var {Position} = require ('./models/position');
 var {SkillComp} = require('./models/skillComp');
 var {Action} = require('./models/action');
 
+const port = process.env.PORT || 3000;
+
 // connection to the db
 mongoose.connect('mongodb://localhost:30001/HR', { useMongoClient: true });
 mongoose.Promise = global.Promise;
@@ -19,8 +21,8 @@ mongoose.Promise = global.Promise;
 app.use(bodyParser.json());
 
 //stat the server
-app.listen(3000, function () {
-	console.log('Server is up and running, listening on port 30000');
+app.listen(port, function () {
+	console.log('Server is up and running, listening on port ' + port);
 });
 
 // log what happens
